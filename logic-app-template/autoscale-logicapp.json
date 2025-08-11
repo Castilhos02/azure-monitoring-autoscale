@@ -1,0 +1,30 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json",
+    "actions": {
+      "Call_Azure_Function": {
+        "type": "Http",
+        "inputs": {
+          "method": "POST",
+          "uri": "<URL_DA_FUNÇÃO>",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "trigger": "cpu_alert"
+          }
+        }
+      }
+    },
+    "triggers": {
+      "manual": {
+        "type": "Request",
+        "kind": "Http",
+        "inputs": {
+          "schema": {}
+        }
+      }
+    },
+    "outputs": {}
+  }
+}
